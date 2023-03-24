@@ -63,6 +63,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 return false;
             }
             break;
+        case LCTL_T(KC_LT):
+            if (record->tap.count && record->event.pressed) {
+                tap_code16(KC_LT);
+                return false;
+            }
+            break;
+        case LGUI_T(KC_GT):
+            if (record->tap.count && record->event.pressed) {
+                tap_code16(KC_GT);
+                return false;
+            }
+            break;
     }
     return true;
 }
