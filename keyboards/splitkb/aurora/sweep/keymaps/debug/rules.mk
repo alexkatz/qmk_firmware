@@ -21,3 +21,5 @@
 # while we use the regular RGB underglow for testing
 RGB_MATRIX_ENABLE = no
 RGBLIGHT_ENABLE = yes
+
+CONVERT_TO=promicro_rp2040
