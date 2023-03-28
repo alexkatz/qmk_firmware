@@ -17,8 +17,8 @@
 #include QMK_KEYBOARD_H
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {[0] = LAYOUT_split_3x5_2(KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, LSFT_T(KC_A), LCTL_T(KC_S), LALT_T(KC_D), LGUI_T(KC_F), KC_G, KC_H, RGUI_T(KC_J), RALT_T(KC_K), RCTL_T(KC_L), RSFT_T(KC_SCLN), KC_Z, KC_X, KC_C, LT(3, KC_V), KC_B, KC_N, LT(3, KC_M), KC_COMM, KC_DOT, KC_SLSH, LT(1, KC_BSPC), LT(2, KC_TAB), LT(1, KC_ENT), LT(2, KC_SPC)),
-                                                              [1] = LAYOUT_split_3x5_2(KC_PPLS, KC_P7, KC_P8, KC_P9, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, LSFT_T(KC_PMNS), LCTL_T(KC_P4), LALT_T(KC_P5), LGUI_T(KC_P6), KC_PDOT, KC_LEFT, RGUI_T(KC_DOWN), RALT_T(KC_UP), RCTL_T(KC_RGHT), RSFT_T(KC_EXLM), KC_PCMM, KC_P1, KC_P2, KC_P3, KC_P0, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_QUES, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
-                                                              [2] = LAYOUT_split_3x5_2(KC_GRV, KC_AT, KC_COLN, KC_DLR, KC_CIRC, KC_NO, KC_LPRN, KC_RPRN, KC_NO, KC_BSLS, LSFT_T(KC_TILD), LCTL_T(KC_LT), LALT_T(KC_PEQL), LGUI_T(KC_GT), KC_PERC, KC_NO, RGUI_T(KC_LCBR), RALT_T(KC_RCBR), RCTL_T(KC_QUOT), RSFT_T(KC_DQUO), KC_UNDS, KC_ASTR, KC_AMPR, KC_PIPE, KC_HASH, KC_NO, KC_LBRC, KC_RBRC, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
+                                                              [1] = LAYOUT_split_3x5_2(KC_PPLS, KC_P7, KC_P8, KC_P9, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, LSFT_T(KC_PMNS), LCTL_T(KC_P4), LALT_T(KC_P5), LGUI_T(KC_P6), KC_PDOT, KC_LEFT, RGUI_T(KC_DOWN), RALT_T(KC_UP), RCTL_T(KC_RGHT), RSFT_T(KC_NO), KC_UNDS, KC_P1, KC_P2, KC_P3, KC_P0, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
+                                                              [2] = LAYOUT_split_3x5_2(KC_GRV, KC_AT, KC_COLN, KC_DLR, KC_CIRC, KC_NO, KC_LPRN, KC_RPRN, KC_DQUO, KC_BSLS, LSFT_T(KC_TILD), LCTL_T(KC_LT), LALT_T(KC_PEQL), LGUI_T(KC_GT), KC_PERC, KC_NO, RGUI_T(KC_LCBR), RALT_T(KC_RCBR), RCTL_T(KC_QUOT), RSFT_T(KC_EXLM), KC_TRNS, KC_ASTR, KC_AMPR, KC_PIPE, KC_HASH, KC_NO, KC_LBRC, KC_RBRC, KC_TRNS, KC_QUES, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
                                                               [3] = LAYOUT_split_3x5_2(KC_NO, KC_BRIU, KC_MUTE, KC_VOLU, KC_NO, KC_NO, KC_VOLU, KC_MUTE, KC_BRIU, KC_NO, RSFT_T(KC_NO), KC_BRID, KC_ESC, KC_VOLD, KC_NO, KC_NO, KC_VOLD, KC_ESC, KC_BRID, LSFT_T(KC_NO), KC_SLEP, KC_NO, KC_NO, QK_BOOT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_SLEP, KC_ENT, KC_SPC, KC_BSPC, KC_TAB)};
 
 // turns off liatris onboard LED
@@ -39,21 +39,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 return false;
             }
             break;
-        case RSFT_T(KC_DQUO):
+        case RALT_T(KC_RCBR):
             if (record->tap.count && record->event.pressed) {
-                tap_code16(KC_DQUO);
+                tap_code16(KC_RCBR);
                 return false;
             }
             break;
         case RGUI_T(KC_LCBR):
             if (record->tap.count && record->event.pressed) {
                 tap_code16(KC_LCBR);
-                return false;
-            }
-            break;
-        case RALT_T(KC_RCBR):
-            if (record->tap.count && record->event.pressed) {
-                tap_code16(KC_RCBR);
                 return false;
             }
             break;
@@ -71,7 +65,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case LGUI_T(KC_GT):
             if (record->tap.count && record->event.pressed) {
-                tap_code16(KC_GT);
+                tap_code16(KC_LT);
                 return false;
             }
             break;
