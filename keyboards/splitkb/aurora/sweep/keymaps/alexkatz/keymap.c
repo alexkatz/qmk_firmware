@@ -65,7 +65,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case LGUI_T(KC_GT):
             if (record->tap.count && record->event.pressed) {
-                tap_code16(KC_LT);
+                tap_code16(KC_GT);
                 return false;
             }
             break;
